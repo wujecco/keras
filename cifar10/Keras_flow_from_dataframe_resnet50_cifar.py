@@ -110,7 +110,7 @@ results=pd.DataFrame({"Filename":filenames,
 results.to_csv("results.csv",index=False)
 
 
-model.save("C:/Users/m.wujec/wujeccoai/keras/cifar10/wujeccoaimod.h5")
+model.save("E:\wujeccoai_data\cifar10\results\wujeccoKerasModel.h5")
 print('Saved trained model at %s ')
 
 
