@@ -13,7 +13,7 @@ from keras.preprocessing import image
 from keras.applications.resnet50 import preprocess_input, decode_predictions
 
 
-traindf=pd.read_csv("E:/wujeccoai_data/human_atlas_data/all/train.csv")
+traindf=pd.read_csv("C:/Users/macie/wujeccoai/git/wujeccoKeras/cifar10/train.csv")
 
 
 
@@ -26,7 +26,7 @@ datagen = ImageDataGenerator(rescale=1./255.,validation_split=0.25)
 train_generator=datagen.flow_from_dataframe(
 
     dataframe=traindf,
-    directory="E:/wujeccoai_data/human_atlas_data/all/train/green",
+    directory="C:/Users/macie/wujeccoai/git/wujeccoKeras/cifar10/sampleImage/train",
 
     x_col="Id",
     y_col="Target",
@@ -45,7 +45,7 @@ train_generator=datagen.flow_from_dataframe(
 valid_generator=datagen.flow_from_dataframe(
     
     dataframe=traindf,
-    directory="E:/wujeccoai_data/human_atlas_data/all/train/green",
+    directory="C:/Users/macie/wujeccoai/git/wujeccoKeras/cifar10/sampleImage/train",
     
     x_col="Id",
     y_col="Target",
@@ -70,8 +70,8 @@ model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['ac
 
 
 #%%
-STEP_SIZE_TRAIN=train_generator.n//train_generator.batch_size
-STEP_SIZE_VALID=valid_generator.n//valid_generator.batch_size
+STEP_SIZE_TRAIN=1
+STEP_SIZE_VALID=1
 model.fit_generator(generator=train_generator,
                     steps_per_epoch=STEP_SIZE_TRAIN,
                     validation_data=valid_generator,
